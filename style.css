@@ -1,12 +1,12 @@
 body {
     color: black;
-    background-color: #D1E8E2;
     font-family: Arial, Helvetica, sans-serif;
     margin: 0px;
     padding: 0px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    background-color: #D1E8E2;
 }
 header {
     text-align: center;
@@ -15,8 +15,12 @@ header {
     color: black;
     padding: 10px;
 }
-header a {color: black;}
-header a:hover {text-decoration: none;}
+header a {
+    color: black;
+}
+header a:hover {
+    text-decoration: none;
+}
 nav {
     text-align: center;
     background-color: #333;
@@ -34,8 +38,8 @@ nav a {
 section {
     display: flex;
     flex-direction: row;
-    flex-grow: 1;
     overflow: hidden;
+    flex-grow: 1;
 }
 article {
     padding-left: 10px;
@@ -45,6 +49,11 @@ aside {
     background-color: #A9D6E5;
     width: 30%;
     padding-left: 10px;
+    padding-top: 5px;
+    font-size: large;
+}
+aside a {
+    color: black;
 }
 footer {
     background-color: #C3DDD9;
@@ -52,8 +61,6 @@ footer {
     color: #283845;
     text-align: center;
     width: 100%;
-    bottom: 0;
-    position: fixed;
 }
 footer a {
     color: #283845;
@@ -72,4 +79,16 @@ button {
     font-size: medium;
     color: #283845;
 }
-button:hover {text-decoration: underline; cursor: pointer;}
+button:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 850px) {
+    section {
+        flex-direction: column;
+    }
+    aside nav {
+        width: 100%;
+    }
+}
