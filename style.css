@@ -1,12 +1,13 @@
 body {
     color: black;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana;
     margin: 0px;
     padding: 0px;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
     background-color: #D1E8E2;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 header {
     text-align: center;
@@ -24,7 +25,6 @@ header a:hover {
 nav {
     text-align: center;
     background-color: #333;
-    overflow: hidden;
     padding: 8px;
     color: white;
     font-size: 19px;
@@ -33,7 +33,7 @@ nav {
 nav a {
     text-decoration: none;
     color: white;
-    font-size: 20px;
+    font-size: 17px;
 }
 section {
     display: flex;
@@ -50,7 +50,7 @@ aside {
     width: 30%;
     padding-left: 10px;
     padding-top: 5px;
-    font-size: large;
+    font-size: medium;
 }
 aside a {
     color: black;
@@ -88,7 +88,10 @@ button:hover {
     section {
         flex-direction: column;
     }
-    aside nav {
+    aside {
+        width: 100%;
+    }
+    article {
         width: 100%;
     }
 }

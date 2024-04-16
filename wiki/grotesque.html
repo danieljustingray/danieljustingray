@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grotesque - Wiki of words - Daniel Justin Gray</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="slideshow.css">
+    <style>
+        input {
+            font-family: Verdana;
+            border-radius: 3px;
+            box-shadow: inset #0008 0px 0.2px 1.2px, inset #fff8 0px 10px 0px;
+        }
+    </style>
+</head>
+<body>
+<container>
+    <header>
+        <a href="../index.html"><h2>Daniel Justin Gray</h2></a>
+    </header>
+    <nav>
+        <a href="../about.html">About me</a> | 
+        <a href="../projects.html">My projects</a> | 
+        <a href="index.html">Wiki (of words)</a>
+    </nav>
+    <section>
+        <article>
+            <h2>Grotesque</h2>
+            <h3><a href="https://dictionary.cambridge.org/dictionary/english/grotesque" target="_blank">English definition</a></h3>
+            <h3>My definition</h3>
+            <p>Grotesque refers to anything that isn't good looking, or something that I disapprove of.</p>
+            <h4>Examples</h4>
+            <div class="slideshow-container">
+                <div class="mySlides">
+                    <div class="frutiger-aero">
+                        <p class="frutiger-text">Frutiger Aero 1</p>
+                    </div>
+                    <img class="slideshow-img" src="images/guido.png" alt="gsgguido" width="300" height="400">
+                    <div class="caption-container">
+                        <p class="caption">Caption for Slide 1</p>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <div class="frutiger-aero">
+                        <p class="frutiger-text">Frutiger Aero 2</p>
+                    </div>
+                    <img class="slideshow-img" src="https://img.freepik.com/free-photo/vibrant-colors-nature-close-up-wet-purple-daisy-generated-by-artificial-intellingence_25030-63819.jpg" alt="Slide 2">
+                    <div class="caption-container">
+                        <p class="caption">Caption for Slide 2</p>
+                    </div>
+                </div>
+                <div class="nav-buttons">
+                    <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
+                    <button class="fullscreen-btn" onclick="toggleFullScreen()">Fullscreen</button>
+                    <button class="next" onclick="plusSlides(1)">&#10095;</button>
+                </div>                                       
+            </div>                                           
+        </article>
+        <aside>
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for words.." title="Type in a name">
+                <ul id="myUL">
+                    <li><a href="#">Grotesque</a></li>
+                    <li><a href="grotestquery.html">Grotesquery</a></li>
+                    <li><a href="ruggedroll.html">Ruggedroll</a></li>
+                    <li><a href="splendorous.html">Splendorous</a></li>
+                    <li><a href="ample.html">Ample</a></li>
+                    <li><a href="farelcore.html">Farelcore</a></li>
+                    <li><a href="frutigeraero.html">Frutiger aero</a></li>
+                </ul>
+        </aside>
+    </section>
+    <footer>
+        <p>@ 2024 Daniel Justin Gray</p>
+        <p><a href="../privacy.html">Privacy Policy</a> |
+        <a href="javascript:history.back()">Go Back</a></p>
+    </footer>
+</container>
+<script src="searchfunction.js"></script>
+<script src="slideshow.js"></script>
+</body>
+</html>
