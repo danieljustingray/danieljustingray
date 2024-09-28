@@ -1,0 +1,165 @@
+body {
+    background-color: rgb(172, 202, 240);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow-x: hidden;
+}
+header {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.container {
+    display: flex;
+    flex: 1;
+    width: 100vw;
+}
+aside {
+    width: 20vw;
+    background: linear-gradient(rgb(225, 237, 254), rgb(201, 224, 254));
+    border: 2px ridge rgb(124, 165, 218);
+    border-bottom: none;
+    border-left: none;
+    display: flex;
+    flex-direction: column;
+}
+aside button {
+    font-size: 15px;
+    cursor: pointer;
+    margin: 0;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    text-align: left;
+}
+aside button:hover {
+    background: linear-gradient(rgb(219, 234, 254), rgb(177, 210, 254));
+}
+aside button.active-tab {
+    background: linear-gradient(rgb(219, 234, 254), rgb(177, 210, 254));
+    color: rgb(15, 51, 116);
+    border: 1px ridge rgb(116, 158, 212);
+}
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+article {
+    flex: 1;
+    width: 80vw;
+    background: linear-gradient(rgb(225, 237, 254), rgb(201, 224, 254));
+    padding: 10px;
+    border-top: 2px ridge rgb(124, 165, 218);
+    border-radius: 2px;
+    display: none;
+}
+article.active {
+    display: block;
+}
+input:hover, button:hover {
+    background: linear-gradient(rgb(216, 216, 216), rgb(245, 245, 2145));
+}
+.name {
+    font-family: monospace;
+    color: blue;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+.icon {
+    width: 50px;
+    height: 50px;
+}
+.iconbox {
+    display: flex;
+    align-items: center;
+}
+a {
+    color: blue;
+    text-decoration: none;
+}
+a:hover {text-decoration: underline;}
+button {
+    background: linear-gradient(rgb(245, 245, 245), rgb(216, 216, 216));
+    border: ridge rgb(124, 165, 218);
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 2px;
+}
+.button {
+    height: 18px;
+    padding: 2px 8px;
+    border: 1px ridge #F3F3F3;
+    -moz-box-shadow: 0 0 0 1px #707070;
+    -webkit-box-shadow: 0 0 0 1px #707070;
+    box-shadow: 0 0 0 1px #707070;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    background: -moz-linear-gradient(top, #F2F2F2 0%, #EBEBEB 50%, #DDDDDD 51%, #CFCFCF 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0,#F2F2F2), color-stop(0.5,#EBEBEB),color-stop(0.51,#DDDDDD),color-stop(1,#CFCFCF));
+    background: linear-gradient(top, #F2F2F2 0%, #EBEBEB 50%, #DDDDDD 51%, #CFCFCF 100%);
+    font: normal 12px sans-serif;
+    color: black;
+}
+.button:hover {
+    border: 1px solid #ECF7FD;
+    -moz-box-shadow: 0 0 0 1px #3C7FB1;
+    -webkit-box-shadow: 0 0 0 1px #3C7FB1;
+    box-shadow: 0 0 0 1px #3C7FB1;
+    background: -moz-linear-gradient(top, #EAF6FD 0%, #D9F0FC 50%, #BEE6FD 51%, #A7D9F5 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0,#EAF6FD), color-stop(0.5,#D9F0FC),color-stop(0.51,#BEE6FD),color-stop(1,#A7D9F5));
+    background: linear-gradient(top, #EAF6FD 0%, #D9F0FC 50%, #BEE6FD 51%, #A7D9F5 100%);
+}
+#thetime {
+    font-size: 50px;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+#scratchpad {
+    width: 300px;
+    height: 300px;
+    border: 2px ridge rgb(124, 165, 218);
+    font-family: Arial;
+    padding: 10px;
+    resize: both;
+    overflow: auto;
+}
+.roster {
+    border-collapse: collapse;
+    width: 75vw;
+    font-family: Verdana;
+    border: 3px groove #66AC70;
+    background-color: #DFF5CC;
+}
+.hour {
+    width: 2%;
+    text-align: right;
+    border-right: 1px solid #66AC70;
+}
+.day {
+    width: 18.2%
+}
+.roster th {
+    background: linear-gradient(#DFF5CC, #BBEDA4);
+}
+.hourstable {
+    border: 1px solid black;
+    border-collapse: collapse;
+    background: linear-gradient(#DFF5CC, #BBEDA4);
+}
+.block {
+    background: red url(icons/block.png) no-repeat center;
+}

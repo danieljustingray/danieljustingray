@@ -1,0 +1,45 @@
+body {
+    background-color: rgb(172, 202, 240);
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+header {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+article {
+    background: linear-gradient(rgb(225, 237, 254), rgb(201, 224, 254));
+    padding: 20px;
+    border: 2px ridge rgb(124, 165, 218);
+    border-radius: 2px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+input {
+    display: block;
+    background: linear-gradient(rgb(245, 245, 245), rgb(216, 216, 216));
+    border: ridge rgb(124, 165, 218);
+    font-size: 15px;
+    width: calc(100% - 10px);
+    border-radius: 2px;
+    margin-bottom: 10px;
+    padding: 5px;
+    font-family: monospace;
+}
+input:hover {
+    background: linear-gradient(rgb(216, 216, 216), rgb(245, 245, 2145));
+}
+button {
+    background: linear-gradient(rgb(245, 245, 245), rgb(216, 216, 216));
+    border: ridge rgb(124, 165, 218);
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 2px;
+    width: 55px;
+    text-align: center;
+}
+button:hover {
+    background: linear-gradient(rgb(216, 216, 216), rgb(245, 245, 2145));
+}

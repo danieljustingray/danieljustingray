@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MaYester 2.0</title>
+        <link rel="stylesheet" href="../style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body onload="startTime()">
+        <header><h2 class="name">Daniel Gray - Rostermaker, computer language - RSB</h2></header>
+        <div class="container">
+            <aside>
+                <h3 style="padding: 10px;">MaYester <span class="name">2.0</span> | Last updated <span class="name">19 Aug 2007</span></h3>
+                <button onclick="openTab('auto')" id="homeTab">
+                    <div class="iconbox">
+                        <img src="../icons/home.png" class="icon">
+                        <p>Home</p>
+                    </div>
+                </button>
+                <button onclick="openTab('roster')" id="rosterTab">
+                    <div class="iconbox">
+                        <img src="../icons/roster.png" class="icon">
+                        <p>Roster</p>
+                    </div>
+                </button>
+                <button onclick="openTab('classes')" id="classesTab">
+                    <div class="iconbox">
+                        <img src="../icons/mark.png" class="icon">
+                        <p>Classes</p>
+                    </div>
+                </button>
+                <button onclick="openTab('student')" id="studentTab">
+                    <div class="iconbox">
+                        <img src="../icons/student.png" class="icon">
+                        <p>Students</p>
+                    </div>
+                </button>
+                <button onclick="openTab('personeel')" id="personeelTab">
+                    <div class="iconbox">
+                        <img src="../icons/personeel.png" class="icon">
+                        <p>Personeel</p>
+                    </div>
+                </button>
+            </button>
+            <button onclick="openTab('notepad')" id="notepadTab">
+                <div class="iconbox">
+                    <img src="../icons/notepad.png" class="icon">
+                    <p>Notepad</p>
+                </div>
+            </button>
+            <button onclick="openTab('links')" id="linksTab">
+                <div class="iconbox">
+                    <img src="../icons/links.png" class="icon">
+                    <p>DLE</p>
+                </div>
+            </button>
+            <button onclick="location.href='../news.html';">
+                <div class="iconbox">
+                    <img src="../icons/news.png" class="icon">
+                    <p>Information</p>
+                </div>
+            </button>
+            <button onclick="location.href='../index.html';">
+                <div class="iconbox">
+                    <img src="../icons/logout.png" class="icon">
+                    <p>Logout</p>
+                </div>
+            </button>
+            </aside>
+            <div class="content">
+                <article id="auto" class="tab active">
+                    <p>Welcome <span class="name">Daniel Gray</span>! Select one of the options from the sidebar.</p>
+                        <div id="thetime"></div>
+                        <button onclick="increaseFontSize()" class="button">Increase Font Size</button>
+                        <button onclick="decreaseFontSize()" class="button">Decrease Font Size</button>
+                </article>
+                <article id="roster" class="tab">
+                    <h2>Roster</h2>
+                    <!--roster information goes here-->
+                    <p>Loaded: <span class="name">GRY</span> | Version: <span class="name">P1_07/08</span> | Week: <span class="name">35</span></p>
+                    <table class="roster">
+                        <tr>
+                            <th class="hour">#</th>
+                            <th class="day">Mon 27</th>
+                            <th class="day">Tue 28</th>
+                            <th class="day">Wed 29</th>
+                            <th class="day">Thu 30</th>
+                            <th class="day">Fri 31</th>
+                        </tr>
+                        <tr>
+                            <td class="hour">1</td>
+                            <td></td>
+                            <td>gry - CL - A1a (107)</td>
+                            <td></td>
+                            <td></td>
+                            <td>gry - CL - A1b (107)</td>
+                        </tr>
+                        <tr>
+                            <td class="hour">2</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="hour">3</td>
+                            <td class="block"></td>
+                            <td>gry - CL - A2a (107)</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="hour">4</td>
+                            <td class="block"></td>
+                            <td>gry - CL - A2c (107)</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="hour">5</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td class="hour">6</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                    <p><strong>Hours:</strong></p>
+                    <table class="hourstable">
+                        <tr class="hourstable">
+                            <td class="hourstable">1</td>
+                            <td>08:15 - 09:25</td>
+                        </tr>
+                        <tr class="hourstable">
+                            <td class="hourstable">2</td>
+                            <td>09:25 - 10:35</td>
+                        </tr>
+                        <tr class="hourstable">
+                            <td class="hourstable">3</td>
+                            <td>10:55 - 12:05</td>
+                        </tr>
+                        <tr class="hourstable">
+                            <td class="hourstable">4</td>
+                            <td>12:05 - 13:15</td>
+                        </tr>
+                        <tr class="hourstable">
+                            <td class="hourstable">5</td>
+                            <td>13:40 - 14:50</td>
+                        </tr>
+                        <tr class="hourstable">
+                            <td class="hourstable">3</td>
+                            <td>14:50 - 16:00</td>
+                        </tr>
+                    </table><br>
+                    <a href="../lessontable.html">Lessontable</a>
+                    
+                </article>
+                <article id="classes" class="tab">
+                    <!--marks information goes here-->
+                    <a href="oldmarks.html">View highschool marks (216539)</a><br><hr>
+                    <i>Classes</i><br>
+                    <a href="../classes/index.html"><img src="../icons/search.png" width="20" height="20">Search all classes</a><hr>
+                    <a href="../classes/a1a.html">A1a</a><br>
+                    <a href="../classes/a1b.html">A1b</a><br>
+                    <a href="../classes/a2a.html">A2a</a><br>
+                    <a href="../classes/a2c.html">A2c</a>
+                </article>
+                <article id="student" class="tab">
+                    <a href="#"><img src="../icons/search.png" width="20" height="20">Search all students</a>
+                </article>
+                <article id="personeel" class="tab">
+                    <!--Personeel info goes here-->
+                </article>
+                <article id="notepad" class="tab">
+                    <!--Notepad-->
+                    <div class="toolbar">
+                        <button onclick="document.execCommand('bold')">Bold</button>
+                        <button onclick="document.execCommand('italic')">Italic</button>
+                        <button onclick="document.execCommand('underline')">Underline</button>
+                    </div><br>
+                    <div id="scratchpad" contenteditable="true"></div>
+                </article>
+                <article id="links" class="tab">
+                    <!--Links-->
+                </article>
+            </div>
+        </div>
+        <script src="../script.js"></script>
+    </body>
+</html>

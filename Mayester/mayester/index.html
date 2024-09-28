@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MaYester 2.0</title>
+        <link rel="stylesheet" href="login.css">
+    </head>
+    <body>
+        <header><h1>MaYester</h1></header>
+        <article>
+            <form id="loginForm">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required><br>
+                <label for="school">School:</label>
+                <input type="text" id="school" name="school" value="RSB" required><br>
+                <button type="button" onclick="login()">Login</button>
+            </form>
+        </article>
+        <script src="script.js">
+            window.onload = function() {
+                document.getElementById('school').value = 'RSB';
+            };
+        </script>
+    </body>
+</html>
