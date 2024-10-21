@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19 Cartogram (Europe)</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/topojson.v3.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        svg {
+            width: 100%;
+            height: 600px;
+        }
+        .country {
+            fill: lightblue;
+            stroke: white;
+            stroke-width: 0.5;
+        }
+        .cartogram-country {
+            fill: steelblue;
+            stroke: black;
+            stroke-width: 0.5;
+        }
+        .tooltip {
+            position: absolute;
+            background-color: #fff;
+            padding: 5px;
+            border: 1px solid #ddd;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>COVID-19 Cartogram (Europe)</h1>
+    <svg></svg>
+
+    <script>
+        const svg = d3.select("svg");
+        const width = window.innerWidth;
+        const height = 600;
+
+        // Projection and path generator
+        const projection = d3.geoMercator().scale(250).translate([width / 2, height / 1.5]);
+        const path = d3.geoPath().projection(projection);
+
+        // Tooltip for hover interactions
+        const tooltip = d3.select("body").append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0);
+
+        // Load the TopoJSON (Europe) and COVID-19 data
+        Promise.all([
+            d3.json("https://raw.githubusercontent.com/leakyMirror/map-of-europe/master/TopoJSON/europe.json"),
+            d3.csv("covid19casesineurope.csv")
+        ]).then(([europe, covidData]) => {
+            // Convert TopoJSON to GeoJSON
+            const countries = topojson.feature(europe, europe.objects.continent_Europe_subunits).features;
+
+            // Create a dictionary for COVID-19 cases data
+            const covidMap = new Map(covidData.map(d => [d.iso_code, +d.covid_cases]));
+
+            // Scales for resizing (for example, square root scaling)
+            const scale = d3.scaleSqrt()
+                .domain([0, d3.max(covidData, d => +d.covid_cases)])
+                .range([1, 50]);
+
+            // Bind data to the map and visualize
+            svg.append("g")
+                .selectAll("path")
+                .data(countries)
+                .enter().append("path")
+                .attr("class", "country")
+                .attr("d", path)
+                .on("mouseover", function(event, d) {
+                    const cases = covidMap.get(d.properties.iso_a3) || "Unknown";
+                    d3.select(this).attr("fill", "orange");
+                    tooltip.transition()
+                        .duration(200)
+                        .style("opacity", .9);
+                    tooltip.html(`${d.properties.name}: ${cases} COVID-19 cases`)
+                        .style("left", (event.pageX + 10) + "px")
+                        .style("top", (event.pageY - 28) + "px");
+                })
+                .on("mouseout", function(d) {
+                    d3.select(this).attr("fill", "lightblue");
+                    tooltip.transition()
+                        .duration(500)
+                        .style("opacity", 0);
+                });
+
+            // Rescale countries based on COVID-19 cases and redraw
+            countries.forEach(d => {
+                const cases = covidMap.get(d.properties.iso_a3) || 1;
+                d.properties.area = scale(cases);
+            });
+
+            svg.append("g")
+                .selectAll("path")
+                .data(countries)
+                .enter().append("path")
+                .attr("class", "cartogram-country")
+                .attr("d", d3.geoPath().projection(projection))
+                .attr("transform", d => `scale(${d.properties.area})`);
+
+            // Zoom behavior
+            const zoom = d3.zoom()
+                .scaleExtent([1, 8])
+                .on("zoom", function(event) {
+                    svg.selectAll("path")
+                        .attr("transform", event.transform);
+                });
+
+            svg.call(zoom);
+        });
+    </script>
+</body>
+</html>
