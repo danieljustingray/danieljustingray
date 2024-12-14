@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Daniel Justin Gray</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="description" content="Daniel's website">
+    <meta name="keywords" content="Portfolio">
+    <meta name="author" content="Daniel Gray">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<header>
+    <h1>My personal top 250</h1>
+    <p>My top 250 for 2024</p>
+</header>  
+<nav>
+    <a href="http://danieljustingray.soppyinc.com"><i class="fa fa-home" style="font-size:24px"></i></a>
+    <a href="projects"><i class='fa fa-code' style='font-size:24px'></i></a>
+    <a href="top250"><i class="fa fa-music" style='font-size:24px'></i></a>
+    <a href="contact" style="float:right"><i class='fa fa-address-book' style='font-size:24px'></i></a>
+</nav>    
+
+<div class="row">
+    <div class="card">
+        <h2>List</h2>
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="song-search" placeholder="Search for songs or artists..." onkeyup="filterSongs()">
+        </div>
+        <!-- Song List -->
+        <div class="song-list" id="song-list">
+            <div class="song-card">
+                <span class="song-number">1</span>
+                <div class="song-info">
+                    <h3>Zion</h3>
+                    <p>NYCYPCD</p>
+                    <p>
+                        <a href="https://open.spotify.com/track/30shotRtUcSGF3Vn7JFjdQ?si=50e6cd7cbc514fe8" target="_blank">Spotify</a>
+                    </p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/lordkeepmyheart.png" alt="Album Cover" class="album-cover">
+                    <button class="play-audio" onclick="playAudio('audio/zion.mp3')">
+                        <i class="fa fa-play"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="song-card">
+                <span class="song-number">2</span>
+                <div class="song-info">
+                    <h3>There is one body in this universe</h3>
+                    <p>Living Stream Ministry</p>
+                    <p>
+                        <a href="https://open.spotify.com/track/54YaZbA2je8tRph30uNYxN?si=25ff59a3ed294e42" target="_blank">Spotify</a>
+                    </p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/thydwellingplace.png" alt="Album Cover" class="album-cover">
+                    <button class="play-audio" onclick="playAudio('audio/2.ogg')">
+                        <i class="fa fa-play"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="song-card">
+                <span class="song-number">3</span>
+                <div class="song-info">
+                    <h3>Clair de Lune</h3>
+                    <p>Claude Debussy</p>
+                    <p>
+                        <a href="https://open.spotify.com/track/54YaZbA2je8tRph30uNYxN?si=25ff59a3ed294e42" target="_blank">Spotify</a>
+                    </p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/clair.png" alt="Album Cover" class="album-cover">
+                    <button class="play-audio" onclick="playAudio('audio/3.mp3')">
+                        <i class="fa fa-play"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        <audio id="audio-player" src=""></audio>
+    </div>
+</div>
+
+<footer>
+    <h4>&copy;2024 Daniel Justin Gray</h4>
+    <p>E: <a href="mailto:irishball193@gmail.com">irishball193@gmail.com</a></p>
+    <p>W: <a href="#">danieljustingray.github.io/danieljustingray</a></p>
+    <a href="privacy.html">Privacy policy</a>
+</footer>
+
+<script>
+    function filterSongs() {
+        const query = document.getElementById('song-search').value.toLowerCase();
+        const songCards = document.querySelectorAll('.song-card');
+        
+        songCards.forEach(card => {
+            const songTitle = card.querySelector('.song-info h3').innerText.toLowerCase();
+            const artistName = card.querySelector('.song-info p').innerText.toLowerCase();
+
+            if (songTitle.includes(query) || artistName.includes(query)) {
+                card.style.display = 'flex'; // Show matching card
+            } else {
+                card.style.display = 'none'; // Hide non-matching card
+            }
+        });
+    }
+    function playAudio(src) {
+    const audioPlayer = document.getElementById('audio-player');
+    if (audioPlayer.src.endsWith(src)) {
+        // Toggle play/pause
+        if (audioPlayer.paused) {
+            audioPlayer.play();
+        } else {
+            audioPlayer.pause();
+        }
+    } else {
+        // Load and play new audio
+        audioPlayer.src = src;
+        audioPlayer.play();
+    }
+}
+
+</script>
+</body>
+</html>
