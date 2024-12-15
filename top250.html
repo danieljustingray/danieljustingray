@@ -43,7 +43,7 @@
                 </div>
                 <div class="album-container">
                     <img src="albums/lordkeepmyheart.png" alt="Album Cover" class="album-cover">
-                    <button class="play-audio" onclick="playAudio('audio/zion.mp3')">
+                    <button class="play-audio" onclick="playAudio(this, 'audio/zion.mp3')">
                         <i class="fa fa-play"></i>
                     </button>
                 </div>
@@ -59,7 +59,7 @@
                 </div>
                 <div class="album-container">
                     <img src="albums/thydwellingplace.png" alt="Album Cover" class="album-cover">
-                    <button class="play-audio" onclick="playAudio('audio/2.ogg')">
+                    <button class="play-audio" onclick="playAudio(this, 'audio/2.ogg')">
                         <i class="fa fa-play"></i>
                     </button>
                 </div>
@@ -70,17 +70,80 @@
                     <h3>Clair de Lune</h3>
                     <p>Claude Debussy</p>
                     <p>
-                        <a href="https://open.spotify.com/track/54YaZbA2je8tRph30uNYxN?si=25ff59a3ed294e42" target="_blank">Spotify</a>
+                        <a href="https://open.spotify.com/track/6Er8Fz6fuZNi5cvwQjv1ya?si=5ae2f8330e7a4797" target="_blank">Spotify</a>
                     </p>
                 </div>
                 <div class="album-container">
                     <img src="albums/clair.png" alt="Album Cover" class="album-cover">
-                    <button class="play-audio" onclick="playAudio('audio/3.mp3')">
+                    <button class="play-audio" onclick="playAudio(this, 'audio/3.mp3')">
                         <i class="fa fa-play"></i>
                     </button>
                 </div>
             </div>
-
+            <div class="song-card">
+                <span class="song-number">4</span>
+                <div class="song-info">
+                    <h3>Snowfall</h3>
+                    <p> reidenshi and Øneheart</p>
+                    <p>
+                        <a href="https://open.spotify.com/track/4xF4ZBGPZKxECeDFrqSAG4?si=5bc9e41613c344be" target="_blank">Spotify</a>
+                    </p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/snowfall.jpg" alt="Album Cover" class="album-cover">
+                    <button class="play-audio" onclick="playAudio( this,'audio/4.mp3')">
+                        <i class="fa fa-play"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="song-card">
+                <span class="song-number">5</span>
+                <div class="song-info">
+                    <h3>Lord, keep my heart</h3>
+                    <p>NYCYPCD</p>
+                    <p>
+                        <a href="https://open.spotify.com/track/4qyvtbMANRfWUlGYAkrDd8?si=e324a672d0d1490c" target="_blank">Spotify</a>
+                    </p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/lordkeepmyheart.png" alt="Album Cover" class="album-cover">
+                    <button class="play-audio" onclick="playAudio( this,'audio/5.mp3')">
+                        <i class="fa fa-play"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="song-card">
+                <span class="song-number">6</span>
+                <div class="song-info">
+                    <h3>Experience</h3>
+                    <p>Ludovico Eindaudi</p>
+                    <p>
+                        <a href="https://open.spotify.com/track/1BncfTJAWxrsxyT9culBrj?si=34aee14add884b02" target="_blank">Spotify</a>
+                    </p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/experience.jpg" alt="Album Cover" class="album-cover">
+                    <button class="play-audio" onclick="playAudio( this,'audio/6.mp3')">
+                        <i class="fa fa-play"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="song-card">
+                <span class="song-number">7</span>
+                <div class="song-info">
+                    <h3>For Her</h3>
+                    <p>NYCYPCD</p>
+                    <p>
+                        <a href="https://open.spotify.com/track/7MWXVAEdkHEuqT6cVY53SM?si=bbe4571e2438490c" target="_blank">Spotify</a>
+                    </p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/ilovethykingdom.jpg" alt="Album Cover" class="album-cover">
+                    <button class="play-audio" onclick="playAudio( this,'audio/7.mp3')">
+                        <i class="fa fa-play"></i>
+                    </button>
+                </div>
+            </div>
         </div>
         <audio id="audio-player" src=""></audio>
     </div>
@@ -89,7 +152,7 @@
 <footer>
     <h4>&copy;2024 Daniel Justin Gray</h4>
     <p>E: <a href="mailto:irishball193@gmail.com">irishball193@gmail.com</a></p>
-    <p>W: <a href="#">danieljustingray.github.io/danieljustingray</a></p>
+    <p>W: <a href="#">danieljustingray.soppyinc.com</a></p>
     <a href="privacy.html">Privacy policy</a>
 </footer>
 
@@ -109,21 +172,36 @@
             }
         });
     }
-    function playAudio(src) {
+    function playAudio(button, src) {
     const audioPlayer = document.getElementById('audio-player');
+    const allButtons = document.querySelectorAll('.play-audio i');
+
+    // Pause current playing audio if it's a different track
     if (audioPlayer.src.endsWith(src)) {
-        // Toggle play/pause
         if (audioPlayer.paused) {
             audioPlayer.play();
+            button.querySelector('i').className = 'fa fa-pause';
         } else {
             audioPlayer.pause();
+            button.querySelector('i').className = 'fa fa-play';
         }
     } else {
-        // Load and play new audio
+        // Stop any currently playing audio and reset icons
+        audioPlayer.pause();
+        allButtons.forEach(icon => (icon.className = 'fa fa-play'));
+
+        // Play the new audio
         audioPlayer.src = src;
         audioPlayer.play();
+        button.querySelector('i').className = 'fa fa-pause';
     }
+
+    // Update icon when playback ends
+    audioPlayer.onended = () => {
+        button.querySelector('i').className = 'fa fa-play';
+    };
 }
+
 
 </script>
 </body>
