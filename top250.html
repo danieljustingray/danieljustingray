@@ -5,9 +5,6 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <meta charset="UTF-8">
-    <meta name="description" content="Daniel's website">
-    <meta name="keywords" content="Portfolio">
-    <meta name="author" content="Daniel Gray">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -22,7 +19,6 @@
     <a href="top250"><i class="fa fa-music" style='font-size:24px'></i></a>
     <a href="contact" style="float:right"><i class='fa fa-address-book' style='font-size:24px'></i></a>
 </nav>    
-
 <div class="row">
     <div class="card">
         <h2>List</h2>
@@ -33,13 +29,14 @@
         <!-- Song List -->
         <div class="song-list" id="song-list">
             <div class="song-card">
-                <span class="song-number">1</span>
+                <div class="song-number-container">
+                    <span class="song-number">1</span>
+                    <span class="position-change same">- +0</span>
+                </div>
                 <div class="song-info">
                     <h3>Zion</h3>
                     <p>NYCYPCD</p>
-                    <p>
-                        <a href="https://open.spotify.com/track/30shotRtUcSGF3Vn7JFjdQ?si=50e6cd7cbc514fe8" target="_blank">Spotify</a>
-                    </p>
+                    <p><a href="https://open.spotify.com/track/30shotRtUcSGF3Vn7JFjdQ?si=50e6cd7cbc514fe8" target="_blank">Spotify</a></p>
                 </div>
                 <div class="album-container">
                     <img src="albums/lordkeepmyheart.png" alt="Album Cover" class="album-cover">
@@ -49,13 +46,14 @@
                 </div>
             </div>
             <div class="song-card">
-                <span class="song-number">2</span>
+                <div class="song-number-container">
+                    <span class="song-number">2</span>
+                    <span class="position-change same">- +0</span>
+                </div>
                 <div class="song-info">
                     <h3>There is one body in this universe</h3>
                     <p>Living Stream Ministry</p>
-                    <p>
-                        <a href="https://open.spotify.com/track/54YaZbA2je8tRph30uNYxN?si=25ff59a3ed294e42" target="_blank">Spotify</a>
-                    </p>
+                    <p><a href="https://open.spotify.com/track/54YaZbA2je8tRph30uNYxN?si=25ff59a3ed294e42" target="_blank">Spotify</a></p>
                 </div>
                 <div class="album-container">
                     <img src="albums/thydwellingplace.png" alt="Album Cover" class="album-cover">
@@ -65,13 +63,14 @@
                 </div>
             </div>
             <div class="song-card">
-                <span class="song-number">3</span>
+                <div class="song-number-container">
+                    <span class="song-number">3</span>
+                    <span class="position-change same">- +0</span>
+                </div>
                 <div class="song-info">
                     <h3>Clair de Lune</h3>
                     <p>Claude Debussy</p>
-                    <p>
-                        <a href="https://open.spotify.com/track/6Er8Fz6fuZNi5cvwQjv1ya?si=5ae2f8330e7a4797" target="_blank">Spotify</a>
-                    </p>
+                    <p><a href="https://open.spotify.com/track/6Er8Fz6fuZNi5cvwQjv1ya?si=5ae2f8330e7a4797" target="_blank">Spotify</a></p>
                 </div>
                 <div class="album-container">
                     <img src="albums/clair.png" alt="Album Cover" class="album-cover">
@@ -79,115 +78,208 @@
                         <i class="fa fa-play"></i>
                     </button>
                 </div>
-            </div>
+            </div> 
             <div class="song-card">
-                <span class="song-number">4</span>
+                <div class="song-number-container">
+                    <span class="song-number">4</span>
+                    <span class="position-change up">&#11205; +4</span>
+                </div>
                 <div class="song-info">
                     <h3>Snowfall</h3>
-                    <p> reidenshi and Øneheart</p>
-                    <p>
-                        <a href="https://open.spotify.com/track/4xF4ZBGPZKxECeDFrqSAG4?si=5bc9e41613c344be" target="_blank">Spotify</a>
-                    </p>
+                    <p>reidenshi and Øneheart</p>
+                    <p><a href="https://open.spotify.com/track/4xF4ZBGPZKxECeDFrqSAG4?si=5bc9e41613c344be" target="_blank">Spotify</a></p>
                 </div>
                 <div class="album-container">
                     <img src="albums/snowfall.jpg" alt="Album Cover" class="album-cover">
-                    <button class="play-audio" onclick="playAudio( this,'audio/4.mp3')">
+                    <button class="play-audio" onclick="playAudio(this, 'audio/4.mp3')">
                         <i class="fa fa-play"></i>
                     </button>
                 </div>
             </div>
             <div class="song-card">
-                <span class="song-number">5</span>
+                <div class="song-number-container">
+                    <span class="song-number">5</span>
+                    <span class="position-change same">- +0</span>
+                </div>
                 <div class="song-info">
                     <h3>Lord, keep my heart</h3>
                     <p>NYCYPCD</p>
-                    <p>
-                        <a href="https://open.spotify.com/track/4qyvtbMANRfWUlGYAkrDd8?si=e324a672d0d1490c" target="_blank">Spotify</a>
-                    </p>
+                    <p><a href="https://open.spotify.com/track/4qyvtbMANRfWUlGYAkrDd8?si=e324a672d0d1490c" target="_blank">Spotify</a></p>
                 </div>
                 <div class="album-container">
                     <img src="albums/lordkeepmyheart.png" alt="Album Cover" class="album-cover">
-                    <button class="play-audio" onclick="playAudio( this,'audio/5.mp3')">
+                    <button class="play-audio" onclick="playAudio(this, 'audio/5.mp3')">
                         <i class="fa fa-play"></i>
                     </button>
                 </div>
             </div>
             <div class="song-card">
-                <span class="song-number">6</span>
+                <div class="song-number-container">
+                    <span class="song-number">6</span>
+                    <span class="position-change same">- +0</span>
+                </div>
                 <div class="song-info">
                     <h3>Experience</h3>
-                    <p>Ludovico Eindaudi</p>
-                    <p>
-                        <a href="https://open.spotify.com/track/1BncfTJAWxrsxyT9culBrj?si=34aee14add884b02" target="_blank">Spotify</a>
-                    </p>
+                    <p>Ludovico Einaudi</p>
+                    <p><a href="https://open.spotify.com/track/1BncfTJAWxrsxyT9culBrj?si=34aee14add884b02" target="_blank">Spotify</a></p>
                 </div>
                 <div class="album-container">
                     <img src="albums/experience.jpg" alt="Album Cover" class="album-cover">
-                    <button class="play-audio" onclick="playAudio( this,'audio/6.mp3')">
+                    <button class="play-audio" onclick="playAudio(this, 'audio/6.mp3')">
                         <i class="fa fa-play"></i>
                     </button>
                 </div>
             </div>
             <div class="song-card">
-                <span class="song-number">7</span>
+                <div class="song-number-container">
+                    <span class="song-number">7</span>
+                    <span class="position-change down">&#11206; -3</span>
+                </div>
                 <div class="song-info">
                     <h3>For Her</h3>
                     <p>NYCYPCD</p>
-                    <p>
-                        <a href="https://open.spotify.com/track/7MWXVAEdkHEuqT6cVY53SM?si=bbe4571e2438490c" target="_blank">Spotify</a>
-                    </p>
+                    <p><a href="https://open.spotify.com/track/7MWXVAEdkHEuqT6cVY53SM?si=bbe4571e2438490c" target="_blank">Spotify</a></p>
                 </div>
                 <div class="album-container">
                     <img src="albums/ilovethykingdom.jpg" alt="Album Cover" class="album-cover">
-                    <button class="play-audio" onclick="playAudio( this,'audio/7.mp3')">
+                    <button class="play-audio" onclick="playAudio(this, 'audio/7.mp3')">
                         <i class="fa fa-play"></i>
                     </button>
                 </div>
             </div>
             <div class="song-card">
-                <span class="song-number">8</span>
+                <div class="song-number-container">
+                    <span class="song-number">8</span>
+                    <span class="position-change down">&#11206; -1</span>
+                </div>
                 <div class="song-info">
                     <h3>Imagine</h3>
                     <p>John Lennon</p>
-                    <p>
-                        <a href="https://open.spotify.com/track/7pKfPomDEeI4TPT6EOYjn9?si=abe15e7e11704656" target="_blank">Spotify</a>
-                    </p>
+                    <p><a href="https://open.spotify.com/track/7pKfPomDEeI4TPT6EOYjn9?si=abe15e7e11704656" target="_blank">Spotify</a></p>
                 </div>
                 <div class="album-container">
                     <img src="albums/imaginejl.png" alt="Album Cover" class="album-cover">
-                    <button class="play-audio" onclick="playAudio( this,'audio/8.mp3')">
+                    <button class="play-audio" onclick="playAudio(this, 'audio/8.mp3')">
                         <i class="fa fa-play"></i>
                     </button>
                 </div>
             </div>
             <div class="song-card">
-                <span class="song-number">9</span>
+                <div class="song-number-container">
+                    <span class="song-number">9</span>
+                    <span class="position-change new">New</span>
+                </div>
                 <div class="song-info">
                     <h3>Divine romance</h3>
                     <p>NYCYPCD</p>
-                    <p>
-                        <a href="https://open.spotify.com/track/30nqhbFo0FU1YV6FcG75Eb?si=a9d2f843088e4b60" target="_blank">Spotify</a>
-                    </p>
+                    <p><a href="https://open.spotify.com/track/30nqhbFo0FU1YV6FcG75Eb?si=a9d2f843088e4b60" target="_blank">Spotify</a></p>
                 </div>
                 <div class="album-container">
                     <img src="albums/lordkeepmyheart.png" alt="Album Cover" class="album-cover">
-                    <button class="play-audio" onclick="playAudio( this,'audio/9.mp3')">
+                    <button class="play-audio" onclick="playAudio(this, 'audio/9.mp3')">
                         <i class="fa fa-play"></i>
                     </button>
                 </div>
             </div>
             <div class="song-card">
-                <span class="song-number">10</span>
+                <div class="song-number-container">
+                    <span class="song-number">10</span>
+                    <span class="position-change up">&#11205; +1</span>
+                </div>
                 <div class="song-info">
-                    <h3>Bundle of joy</h3>
+                    <h3>Bundle of Joy</h3>
                     <p>Michael Giacchino</p>
-                    <p>
-                        <a href="https://open.spotify.com/track/3eTgg18rKBD30Hef1gv0wz?si=e8aad25476084e5f" target="_blank">Spotify</a>
-                    </p>
+                    <p><a href="https://open.spotify.com/track/3eTgg18rKBD30Hef1gv0wz?si=e8aad25476084e5f" target="_blank">Spotify</a></p>
                 </div>
                 <div class="album-container">
                     <img src="albums/bundleofjoy.jpg" alt="Album Cover" class="album-cover">
-                    <button class="play-audio" onclick="playAudio( this,'audio/10.mp3')">
+                    <button class="play-audio" onclick="playAudio(this, 'audio/10.mp3')">
+                        <i class="fa fa-play"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="song-card">
+                <div class="song-number-container">
+                    <span class="song-number">11</span>
+                    <span class="position-change same">- +0</span>
+                </div>
+                <div class="song-info">
+                    <h3>Merry-Go-Round of Life</h3>
+                    <p>Joe Hisaishi</p>
+                    <p><a href="https://open.spotify.com/track/39uLYYZytVUwcjgeYLI409?si=c756784f51024989" target="_blank">Spotify</a></p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/merrygoround.jpg" alt="Album Cover" class="album-cover">
+
+                    <button class="play-audio" onclick="playAudio(this, 'audio/11.mp3')">
+                        <i class="fa fa-play"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="song-card">
+                <div class="song-number-container">
+                    <span class="song-number">12</span>
+                    <span class="position-change up">⯅ +1</span>
+                </div>
+                <div class="song-info">
+                    <h3>What made You die for me?</h3>
+                    <p>NYCYPCD</p>
+                    <p><a href="https://open.spotify.com/track/2cRNB13mfGOqnu5Boq30h9?si=bb2658d69ce947c8" target="_blank">Spotify</a></p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/lordyourreturn.png" alt="Album Cover" class="album-cover">
+
+                    <button class="play-audio" onclick="playAudio(this, 'audio/12.mp3')">
+                        <i class="fa fa-play"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="song-card">
+                <div class="song-number-container">
+                    <span class="song-number">13</span>
+                    <span class="position-change down">⯆ -1</span>
+                </div>
+                <div class="song-info">
+                    <h3>The goal of the gospel</h3>
+                    <p>NYCYPCD</p>
+                    <p><a href="https://open.spotify.com/track/7eejyNi1YOYdw9qHdldbp2?si=588ac1736dc84f7a" target="_blank">Spotify</a></p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/loveunknown.png" alt="Album Cover" class="album-cover">
+
+                    <button class="play-audio" onclick="playAudio(this, 'audio/13.mp3')">
+                        <i class="fa fa-play"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="song-card">
+                <div class="song-number-container">
+                    <span class="song-number">14</span>
+                    <span class="position-change down">⯆ -4</span>
+                </div>
+                <div class="song-info">
+                    <h3>Married life</h3>
+                    <p>Michael Giacchino</p>
+                    <p><a href="https://open.spotify.com/track/7iocNjLrxPHLl8njgRlv5U?si=c68e48d5798d4ff4" target="_blank">Spotify</a></p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/marriedlife.jpg" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card">
+                <div class="song-number-container">
+                    <span class="song-number">21</span>
+                    <span class="position-change down">⯆ -6</span>
+                </div>
+                <div class="song-info">
+                    <h3>The day approaches</h3>
+                    <p>NYCYPCD</p>
+                    <p><a href="https://open.spotify.com/track/3Ibi0uokAZfx3rdyP1AMaC?si=99d6aa0c783047b1" target="_blank">Spotify</a></p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/dayapproaches.png" alt="Album Cover" class="album-cover">
+
+                    <button class="play-audio" onclick="playAudio(this, 'audio/14.mp3')">
                         <i class="fa fa-play"></i>
                     </button>
                 </div>
@@ -196,61 +288,12 @@
         <audio id="audio-player" src=""></audio>
     </div>
 </div>
-
 <footer>
     <h4>&copy;2024 Daniel Justin Gray</h4>
     <p>E: <a href="mailto:irishball193@gmail.com">irishball193@gmail.com</a></p>
     <p>W: <a href="#">danieljustingray.soppyinc.com</a></p>
     <a href="privacy.html">Privacy policy</a>
 </footer>
-
-<script>
-    function filterSongs() {
-        const query = document.getElementById('song-search').value.toLowerCase();
-        const songCards = document.querySelectorAll('.song-card');
-        
-        songCards.forEach(card => {
-            const songTitle = card.querySelector('.song-info h3').innerText.toLowerCase();
-            const artistName = card.querySelector('.song-info p').innerText.toLowerCase();
-
-            if (songTitle.includes(query) || artistName.includes(query)) {
-                card.style.display = 'flex'; // Show matching card
-            } else {
-                card.style.display = 'none'; // Hide non-matching card
-            }
-        });
-    }
-    function playAudio(button, src) {
-    const audioPlayer = document.getElementById('audio-player');
-    const allButtons = document.querySelectorAll('.play-audio i');
-
-    // Pause current playing audio if it's a different track
-    if (audioPlayer.src.endsWith(src)) {
-        if (audioPlayer.paused) {
-            audioPlayer.play();
-            button.querySelector('i').className = 'fa fa-pause';
-        } else {
-            audioPlayer.pause();
-            button.querySelector('i').className = 'fa fa-play';
-        }
-    } else {
-        // Stop any currently playing audio and reset icons
-        audioPlayer.pause();
-        allButtons.forEach(icon => (icon.className = 'fa fa-play'));
-
-        // Play the new audio
-        audioPlayer.src = src;
-        audioPlayer.play();
-        button.querySelector('i').className = 'fa fa-pause';
-    }
-
-    // Update icon when playback ends
-    audioPlayer.onended = () => {
-        button.querySelector('i').className = 'fa fa-play';
-    };
-}
-
-
-</script>
+<script src="script.js"></script>
 </body>
 </html>

@@ -1,135 +1,183 @@
-/* General Styles */
 * {
     box-sizing: border-box;
 }
-
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Tahoma", "Verdana", sans-serif;
     padding: 0;
     margin: 0;
-    background: #f1f1f1;
-}
-
-/* Header Styles */
-header {
-    padding: 30px;
-    text-align: center;
-    background: white;
-}
-
-header h1 {
-    font-size: 30px;
-}
-
-/* Navigation Bar */
-nav {
-    overflow: hidden;
-    background: linear-gradient(180deg, rgba(99, 102, 104, 0.9) 0%, rgba(69, 71, 71, 0.9) 50.52%, rgba(52, 52, 52, 0.9) 53.12%, rgba(0, 0, 0, 0.9) 100%);
-}
-
-nav a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-nav a:hover {
-    background: white;
+    background: #c0c0c0;
     color: black;
-    text-decoration: none;
 }
-
-/* Content Layout */
-.row {
+header {
     padding: 20px;
+    text-align: center;
+    background: #f0f0f0; /* Light gray */
+    border: 2px solid #808080;
+    border-bottom-color: white;
+    border-right-color: white;
+}
+header h1 {
+    font-size: 24px;
+    color: #000080; /* Classic blue */
+    margin: 0;
+}
+header p {
+    margin: 0;
+    font-size: 14px;
 }
 
-.card {
-    background-color: white;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 8px;
-}
-
-/* Search Bar */
-.search-container {
-    margin-bottom: 20px;
-}
-
-#song-search {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-}
-
-/* Song List */
-.song-list {
+/* Navigation */
+nav {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    justify-content: space-around;
+    background: #008080; /* Windows teal */
+    padding: 5px;
+    border: 2px solid #808080;
+    border-top-color: white;
+    border-left-color: white;
 }
-
+nav a {
+    font-family: "Tahoma", sans-serif;
+    font-size: 14px;
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+}
+nav a:hover {
+    background: #000080;
+    color: white;
+    border-color: #c0c0c0;
+}
+.card {
+    background: #f0f0f0;
+    padding: 15px;
+    margin: 20px;
+    border: 2px solid #808080;
+    border-bottom-color: white;
+    border-right-color: white;
+}
+h2 {
+    font-size: 18px;
+    color: #000080;
+    margin: 0 0 10px 0;
+}
+.search-container input {
+    width: 100%;
+    padding: 5px;
+    font-size: 12px;
+    border: 2px solid #808080;
+    border-top-color: white;
+    border-left-color: white;
+    background: #fff;
+}
+.song-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
 .song-card {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    background: #f9f9f9;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    background: #e0e0e0;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #808080;
+    border-bottom-color: white;
+    border-right-color: white;
+}
+.song-info h3 {
+    font-size: 14px;
+    margin: 0;
+    color: black;
+}
+.song-info p {
+    margin: 5px 0;
+    font-size: 12px;
+}
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #008080;
+    color: white;
+    border-top: 2px solid #808080;
+    border-right-color: white;
+}
+footer a {
+    color: yellow;
+    text-decoration: underline;
 }
 
+
+@media screen and (max-width: 600px) {
+    nav {
+        flex-direction: column; /* Stack icons vertically */
+        align-items: center;
+    }
+    nav a {
+        width: 100%; /* Make the links take full width */
+        padding: 10px 0;
+    }
+}
+
+.row {
+    padding: 20px;
+}
 .song-number {
+    font-size: 18px;
     font-weight: bold;
-    margin-right: 20px;
+    color: #333;
 }
-
+.position-change {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-align: center;
+    margin-top: 5px;
+}
+.position-change.same {
+    color: white;
+    background-color: darkgrey;
+}
+.position-change.up {
+    color: white;
+    background-color: green;
+}
+.position-change.down {
+    color: white;
+    background-color: rgb(141, 0, 0);
+}
+.position-change.new {
+    color: white;
+    background-color: rgb(209, 204, 56);
+}
 .song-info {
     flex-grow: 1;
     margin-left: 20px;
+    min-width: 200px;
 }
-
 .song-info h3 {
     margin: 0;
     font-size: 18px;
 }
-
 .song-info p {
     margin: 5px 0;
     font-size: 14px;
     color: #555;
 }
-
-.song-info a {
-    color: blue;
-    text-decoration: none;
-    margin-right: 10px;
-}
-
-.song-info a:hover {
-    color: purple;
-    text-decoration: underline;
-}
-
-/* Album Container */
 .album-container {
     position: relative;
     display: inline-block;
+    flex: 0 0 100px;
+    max-width: 100px;
 }
-
 .album-cover {
     display: block;
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    height: auto;
     border-radius: 5px;
 }
-
-/* Play Button */
 .play-audio {
     position: absolute;
     top: 50%;
@@ -143,12 +191,9 @@ nav a:hover {
     border-radius: 50%;
     cursor: pointer;
 }
-
 .play-audio:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
-
-/* Footer */
 footer {
     padding: 20px;
     text-align: center;
@@ -156,37 +201,42 @@ footer {
     margin-top: 20px;
     border-top: 1px solid #ccc;
 }
-
 footer a {
     color: blue;
     text-decoration: none;
 }
-
 footer a:hover {
     color: purple;
     text-decoration: underline;
 }
-
-/* Responsive Design */
-@media screen and (max-width: 800px) {
-    .row {
-        padding: 10px;
-    }
-    
+@media (max-width: 700px) {
     .song-card {
         flex-direction: column;
         align-items: flex-start;
+        gap: 10px;
     }
-    
+    .song-number-container {
+        margin-right: 0;
+        flex: 0 0 auto;
+    }
     .song-info {
         margin-left: 0;
-        margin-top: 10px;
+    }
+    .album-container {
+        flex: 0 0 auto;
     }
 }
-
-@media screen and (max-width: 400px) {
-    nav a {
-        float: none;
-        width: 100%;
+@media (max-width: 440px) {
+    header h1 {
+        font-size: 24px;
+    }
+    .song-card {
+        padding: 10px;
+    }
+    .song-info h3 {
+        font-size: 16px;
+    }
+    .song-info p {
+        font-size: 12px;
     }
 }
