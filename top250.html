@@ -7,6 +7,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        #toTop {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            font-size: 18px;
+            background: #008080; /* Windows teal */
+            padding: 5px;
+            border: 2px solid #808080;
+            border-top-color: white;
+            border-left-color: white;
+            cursor: pointer;
+        }
+        #toTop:hover {
+            background: #000080;
+            color: white;
+            border-color: #c0c0c0;
+        }
+        .hidden {
+            display: none;
+        }
+        .clear {
+            background: #008080; /* Windows teal */
+            padding: 5px;
+            border: 2px solid #808080;
+            border-top-color: white;
+            border-left-color: white;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .clear:hover {
+            background: #000080;
+            color: white;
+            border-color: #c0c0c0;
+        }
+    </style>
 </head>
 <body>
 <header>
@@ -19,16 +57,24 @@
     <a href="top250"><i class="fa fa-music" style='font-size:24px'></i></a>
     <a href="contact" style="float:right"><i class='fa fa-address-book' style='font-size:24px'></i></a>
 </nav>    
+<button onclick="topFunction()" id="toTop" title="Go to top">Top</button>
+<a href="#bottom">Bottom</a>
 <div class="row">
     <div class="card">
         <h2>List</h2>
         <!-- Search Bar -->
         <div class="search-container">
             <input type="text" id="song-search" placeholder="Search for songs or artists..." onkeyup="filterSongs()">
+            <br><br><button onClick="window.location.reload();" class="clear">Clear search</button>        
+        </div>
+        <div class="filter">
+            <label>
+                <input type="checkbox" id="filter-religious"> Hide Religious Songs
+            </label>
         </div>
         <!-- Song List -->
         <div class="song-list" id="song-list">
-            <div class="song-card">
+            <div class="song-card" data-religious="true">
                 <div class="song-number-container">
                     <span class="song-number">1</span>
                     <span class="position-change same">- +0</span>
@@ -45,7 +91,7 @@
                     </button>
                 </div>
             </div>
-            <div class="song-card">
+            <div class="song-card" data-religious="true">
                 <div class="song-number-container">
                     <span class="song-number">2</span>
                     <span class="position-change same">- +0</span>
@@ -96,7 +142,7 @@
                     </button>
                 </div>
             </div>
-            <div class="song-card">
+            <div class="song-card" data-religious="true">
                 <div class="song-number-container">
                     <span class="song-number">5</span>
                     <span class="position-change same">- +0</span>
@@ -130,7 +176,7 @@
                     </button>
                 </div>
             </div>
-            <div class="song-card">
+            <div class="song-card" data-religious="true">
                 <div class="song-number-container">
                     <span class="song-number">7</span>
                     <span class="position-change down">&#11206; -3</span>
@@ -164,7 +210,7 @@
                     </button>
                 </div>
             </div>
-            <div class="song-card">
+            <div class="song-card" data-religious="true">
                 <div class="song-number-container">
                     <span class="song-number">9</span>
                     <span class="position-change new">New</span>
@@ -216,7 +262,7 @@
                     </button>
                 </div>
             </div>
-            <div class="song-card">
+            <div class="song-card" data-religious="true">
                 <div class="song-number-container">
                     <span class="song-number">12</span>
                     <span class="position-change up">⯅ +1</span>
@@ -234,7 +280,7 @@
                     </button>
                 </div>
             </div>
-            <div class="song-card">
+            <div class="song-card" data-religious="true">
                 <div class="song-number-container">
                     <span class="song-number">13</span>
                     <span class="position-change down">⯆ -1</span>
@@ -280,7 +326,7 @@
                     <img src="albums/auto.png" alt="Album Cover" class="album-cover">
                 </div>
             </div>
-            <div class="song-card">
+            <div class="song-card" data-religious="true">
                 <div class="song-number-container">
                     <span class="song-number">16</span>
                     <span class="position-change down">⯆</span>
@@ -291,13 +337,13 @@
                     <p><a href="https://open.spotify.com/track/1p4IrIlGmPo7rDrY3HyVLo?si=1223acdc55c44f61" target="_blank">Spotify</a></p>
                 </div>
                 <div class="album-container">
-                    <img src="albums/auto.png" alt="Album Cover" class="album-cover">
+                    <img src="albums/iamcominglord.jpg" alt="Album Cover" class="album-cover">
                     <button class="play-audio" onclick="playAudio(this, 'audio/16.mp3')">
                         <i class="fa fa-play"></i>
                     </button>
                 </div>
             </div>
-            <div class="song-card">
+            <div class="song-card" data-religious="true">
                 <div class="song-number-container">
                     <span class="song-number">17</span>
                     <span class="position-change new">New</span>
@@ -341,7 +387,7 @@
                     <img src="albums/inandoutoflove.jpg" alt="Album Cover" class="album-cover">
                 </div>
             </div>
-            <div class="song-card">
+            <div class="song-card" data-religious="true">
                 <div class="song-number-container">
                     <span class="song-number">20</span>
                     <span class="position-change down">⯆ -2</span>
@@ -372,7 +418,7 @@
                     <img src="albums/enyaechoes.jpg" alt="Album Cover" class="album-cover">
                 </div>
             </div>
-            <div class="song-card">
+            <div class="song-card" data-religious="true">
                 <div class="song-number-container">
                     <span class="song-number">22</span>
                     <span class="position-change down">⯆ -7</span>
@@ -407,7 +453,7 @@
                     </button>
                 </div>
             </div>
-            <div class="song-card">
+            <div class="song-card" data-religious="true">
                 <div class="song-number-container">
                     <span class="song-number">24</span>
                     <span class="position-change down">⯆ -1</span>
@@ -431,7 +477,7 @@
                 </div>
                 <div class="song-info">
                     <h3>The sound of silence</h3>
-                    <p>Simon and Garfunkel</p>
+                    <p>Simon & Garfunkel</p>
                     <p><a href="https://open.spotify.com/track/4lu7xSX0x9gRmG1QAApWQN?si=2bf27225ef3146de" target="_blank">Spotify</a></p>
                 </div>
                 <div class="album-container">
@@ -452,7 +498,7 @@
                     <img src="albums/africa.png" alt="Album Cover" class="album-cover">
                 </div>
             </div>
-            <div class="song-card">
+            <div class="song-card" data-religious="true">
                 <div class="song-number-container">
                     <span class="song-number">27</span>
                     <span class="position-change same">- +0</span>
@@ -486,7 +532,7 @@
                     </button>
                 </div>
             </div>
-            <div class="song-card">
+            <div class="song-card" data-religious="true">
                 <div class="song-number-container">
                     <span class="song-number">29</span>
                     <span class="position-change down">⯆ -1</span>
@@ -604,7 +650,7 @@
                     <img src="albums/starman.jpg" alt="Album Cover" class="album-cover">
                 </div>
             </div>
-            <div class="song-card">
+            <div class="song-card" data-religious="true">
                 <div class="song-number-container">
                     <span class="song-number">37</span>
                     <span class="position-change same">- +0</span>
@@ -621,7 +667,7 @@
                     </button>
                 </div>
             </div>
-            <div class="song-card">
+            <div class="song-card" data-religious="true">
                 <div class="song-number-container">
                     <span class="song-number">38</span>
                     <span class="position-change same">- +0</span>
@@ -638,7 +684,7 @@
                     </button>
                 </div>
             </div>
-            <div class="song-card">
+            <div class="song-card" data-religious="true">
                 <div class="song-number-container">
                     <span class="song-number">39</span>
                     <span class="position-change up">⯅ +1</span>
@@ -666,7 +712,7 @@
                     <img src="albums/gorillaz.jpg" alt="Album Cover" class="album-cover">
                 </div>
             </div>
-            <div class="song-card">
+            <div class="song-card" data-religious="true">
                 <div class="song-number-container">
                     <span class="song-number">41</span>
                     <span class="position-change up">⯅ +1</span>
@@ -717,7 +763,7 @@
                     </button>
                 </div>
             </div>
-            <div class="song-card">
+            <div class="song-card" data-religious="true">
                 <div class="song-number-container">
                     <span class="song-number">44</span>
                     <span class="position-change same">- +0</span>
@@ -731,7 +777,7 @@
                     <img src="albums/overcome.webp" alt="Album Cover" class="album-cover">
                 </div>
             </div>
-            <div class="song-card">
+            <div class="song-card" data-religious="true">
                 <div class="song-number-container">
                     <span class="song-number">45</span>
                     <span class="position-change same">- +0</span>
@@ -772,7 +818,8 @@
                 <div class="album-container">
                     <img src="albums/lamourtoujours.jpg" alt="Album Cover" class="album-cover">
                 </div>
-            </div>            <div class="song-card">
+            </div>            
+            <div class="song-card" data-religious="true">
                 <div class="song-number-container">
                     <span class="song-number">48</span>
                     <span class="position-change same">- +0</span>
@@ -786,16 +833,758 @@
                     <img src="albums/intomyheart.png" alt="Album Cover" class="album-cover">
                 </div>
             </div>
+            <div class="song-card" data-religious="true">
+                <div class="song-number-container">
+                    <span class="song-number">49</span>
+                    <span class="position-change up">⯅ +1</span>
+                </div>
+                <div class="song-info">
+                    <h3>In a low dungeon</h3>
+                    <p>NYCYPCD</p>
+                    <p><a href="https://open.spotify.com/track/6MvLW8XZq7KZc0KSIsdrOI?si=e8d9b951e0614e90" target="_blank">Spotify</a></p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/joyunspeakable.png" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="true">
+                <div class="song-number-container">
+                    <span class="song-number">50</span>
+                    <span class="position-change down">⯆ -11</span>
+                </div>
+                <div class="song-info">
+                    <h3>This river</h3>
+                    <p>NYCYPCD</p>
+                    <p><a href="https://open.spotify.com/track/5OvrhhnpITnd0hwwiU61Mt?si=e39b706e8ff340cf" target="_blank">Spotify</a></p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/iamcominglord.jpg" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card">
+                <div class="song-number-container">
+                    <span class="song-number">51</span>
+                    <span class="position-change same">- +0</span>
+                </div>
+                <div class="song-info">
+                    <h3>Stereo love</h3>
+                    <p>Edward Maya & Vika Jigulina</p>
+                    <p><a href="https://open.spotify.com/track/3lYLrCyDzd7WN7mN4T9AkX?si=097d86a173244d73" target="_blank">Spotify</a></p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/stereolove.jpg" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="true">
+                <div class="song-number-container">
+                    <span class="song-number">52</span>
+                    <span class="position-change same">- +0</span>
+                </div>
+                <div class="song-info">
+                    <h3>Even as He is</h3>
+                    <p>NYCYPCD</p>
+                    <p><a href="https://open.spotify.com/track/1jTN26zo9M4HKTn9vlu8Xq?si=c26491f433a04848" target="_blank">Spotify</a></p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/watchbeready.jpg" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="true">
+                <div class="song-number-container">
+                    <span class="song-number">53</span>
+                    <span class="position-change down">⯆ -7</span>
+                </div>
+                <div class="song-info">
+                    <h3>Drink a river</h3>
+                    <p>NYCYPCD</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/joyunspeakable.png" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card">
+                <div class="song-number-container">
+                    <span class="song-number">54</span>
+                    <span class="position-change down">⯆ -1</span>
+                </div>
+                <div class="song-info">
+                    <h3>Cecilia</h3>
+                    <p>Simon & Garfunkel</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/cecilia.jpg" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card">
+                <div class="song-number-container">
+                    <span class="song-number">55</span>
+                    <span class="position-change down">⯆ -1</span>
+                </div>
+                <div class="song-info">
+                    <h3>Prayer in C</h3>
+                    <p>Lily Wood & the Prick & Robin Schulz</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/RobinSchulzPrayer.jpg" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card">
+                <div class="song-number-container">
+                    <span class="song-number">56</span>
+                    <span class="position-change down">⯆ -1</span>
+                </div>
+                <div class="song-info">
+                    <h3>I wanna go</h3>
+                    <p>Britney Spears</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/iwannago.png" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="true">
+                <div class="song-number-container">
+                    <span class="song-number">57</span>
+                    <span class="position-change down">⯆ -1</span>
+                </div>
+                <div class="song-info">
+                    <h3>The vision of God's building</h3>
+                    <p>NYCYPCD</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/iamcominglord.jpg" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card">
+                <div class="song-number-container">
+                    <span class="song-number">58</span>
+                    <span class="position-change down">⯆ -1</span>
+                </div>
+                <div class="song-info">
+                    <h3>Running up that hill (make a deal with God)</h3>
+                    <p>Kate Bush</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/runningupthathill.png" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="true">
+                <div class="song-number-container">
+                    <span class="song-number">59</span>
+                    <span class="position-change up">⯅ +1</span>
+                </div>
+                <div class="song-info">
+                    <h3>Oh, what a life! Oh, what a peace!</h3>
+                    <p>NYCYPCD</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/ohwhatalfie.jpg" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card">
+                <div class="song-number-container">
+                    <span class="song-number">60</span>
+                    <span class="position-change down">⯆ -2</span>
+                </div>
+                <div class="song-info">
+                    <h3>Alejandro</h3>
+                    <p>Lady Gaga</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/alejandro.png" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="true">
+                <div class="song-number-container">
+                    <span class="song-number">61</span>
+                    <span class="position-change down">⯆ -2</span>
+                </div>
+                <div class="song-info">
+                    <h3>I must tell Jesus</h3>
+                    <p>NYCYPCD</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/stealmeaawy.jpg" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card">
+                <div class="song-number-container">
+                    <span class="song-number">62</span>
+                    <span class="position-change same">- +0</span>
+                </div>
+                <div class="song-info">
+                    <h3>Shallow</h3>
+                    <p>Lady Gaga & Bradley Cooper</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/shallowladygaga.jpg" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card">
+                <div class="song-number-container">
+                    <span class="song-number">63</span>
+                    <span class="position-change same">- +0</span>
+                </div>
+                <div class="song-info">
+                    <h3>The best</h3>
+                    <p>Tina Turner</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/TinaTurnerSimplyTheBest.jpg" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card">
+                <div class="song-number-container">
+                    <span class="song-number">64</span>
+                    <span class="position-change down">⯆ -4</span>
+                </div>
+                <div class="song-info">
+                    <h3>Don't you worry child</h3>
+                    <p>Swedish house mafia & John Martin</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/dontyouworrydontyouworry.jpg" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="true">
+                <div class="song-number-container">
+                    <span class="song-number">65</span>
+                    <span class="position-change down">⯆ -1</span>
+                </div>
+                <div class="song-info">
+                    <h3>We wil sing to the Lord</h3>
+                    <p>NYCYPCD</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/joyunspeakable.png" alt="Album Cover" class="album-cover">
+                </div>
+            </div>           
+            <div class="song-card">
+                <div class="song-number-container">
+                    <span class="song-number">66</span>
+                    <span class="position-change new">New</span>
+                </div>
+                <div class="song-info">
+                    <h3>Better days</h3>
+                    <p>Dermot Kennedy</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/betterdays.jpg" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card">
+                <div class="song-number-container">
+                    <span class="song-number">67</span>
+                    <span class="position-change down">⯆ -2</span>
+                </div>
+                <div class="song-info">
+                    <h3>Bad Romance</h3>
+                    <p>Lady Gaga</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/badromance.png" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card">
+                <div class="song-number-container">
+                    <span class="song-number">68</span>
+                    <span class="position-change down">⯆ -2</span>
+                </div>
+                <div class="song-info">
+                    <h3>Solsbury hill</h3>
+                    <p>Peter Gabriel</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/petergabriel.jpg" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card">
+                <div class="song-number-container">
+                    <span class="song-number">69</span>
+                    <span class="position-change down">⯆ -1</span>
+                </div>
+                <div class="song-info">
+                    <h3>This is the life</h3>
+                    <p>Amy Macdonald</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/thisisthelife.jpg" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="true">
+                <div class="song-number-container">
+                    <span class="song-number">70</span>
+                    <span class="position-change down">⯆ -1</span>
+                </div>
+                <div class="song-info">
+                    <h3>The Triune God has now become our all</h3>
+                    <p>NYCYPCD</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/auto.png" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card">
+                <div class="song-number-container">
+                    <span class="song-number">71</span>
+                    <span class="position-change down">⯆ -1</span>
+                </div>
+                <div class="song-info">
+                    <h3>We are the champions</h3>
+                    <p>Queen</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/wearethechampions.jpg" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card">
+                <div class="song-number-container">
+                    <span class="song-number">72</span>
+                    <span class="position-change down">⯆ -2</span>
+                </div>
+                <div class="song-info">
+                    <h3>Brother Louie</h3>
+                    <p>Modern talking</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/moderntalking.jpg" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card">
+                <div class="song-number-container">
+                    <span class="song-number">73</span>
+                    <span class="position-change down">⯆ -2</span>
+                </div>
+                <div class="song-info">
+                    <h3>Dreamer</h3>
+                    <p>Axwell /\ Ingrosso</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/dreamer.png" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="true">
+                <div class="song-number-container">
+                    <span class="song-number">74</span>
+                    <span class="position-change down">⯆ -1</span>
+                </div>
+                <div class="song-info">
+                    <h3>Live Thyself Lord Jesus through me</h3>
+                    <p>NYCYPCD</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/yearofjubilee.webp" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="true">
+                <div class="song-number-container">
+                    <span class="song-number">75</span>
+                    <span class="position-change up">⯅ +10</span>
+                </div>
+                <div class="song-info">
+                    <h3>The Triune God, a mystery</h3>
+                    <p>NYCYPCD</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/lordkeepmyheart.png" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="true">
+                <div class="song-number-container">
+                    <span class="song-number">76</span>
+                    <span class="position-change down">⯆ -2</span>
+                </div>
+                <div class="song-info">
+                    <h3>Christ liveth in me</h3>
+                    <p>Living stream ministry</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/ohwhatalfie.jpg" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="false">
+                <div class="song-number-container">
+                    <span class="song-number">77</span>
+                    <span class="position-change down">⯆ -2</span>
+                </div>
+                <div class="song-info">
+                    <h3>Bridge over troubled water</h3>
+                    <p>Simon & Garfunkel</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/soundofsilence.jpg" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="true">
+                <div class="song-number-container">
+                    <span class="song-number">78</span>
+                    <span class="position-change down">⯆ -2</span>
+                </div>
+                <div class="song-info">
+                    <h3>Recover my heart</h3>
+                    <p>NYCYPCD</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/yearofjubilee.webp" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="false">
+                <div class="song-number-container">
+                    <span class="song-number">79</span>
+                    <span class="position-change down">⯆ -2</span>
+                </div>
+                <div class="song-info">
+                    <h3>Viva la vida</h3>
+                    <p>Coldplay</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/vivalavida.jpg" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="false">
+                <div class="song-number-container">
+                    <span class="song-number">80</span>
+                    <span class="position-change down">⯆ -2</span>
+                </div>
+                <div class="song-info">
+                    <h3>Love to go</h3>
+                    <p>Lost Frequencies</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/lovetogo.png" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="false">
+                <div class="song-number-container">
+                    <span class="song-number">81</span>
+                    <span class="position-change down">⯆ -2</span>
+                </div>
+                <div class="song-info">
+                    <h3>Only time</h3>
+                    <p>Enya</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/enyaechoes.jpg" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="true">
+                <div class="song-number-container">
+                    <span class="song-number">82</span>
+                    <span class="position-change down">⯆ -2</span>
+                </div>
+                <div class="song-info">
+                    <h3>Just one touch</h3>
+                    <p>NYCYPCD</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/lordkeepmyheart.png" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="true">
+                <div class="song-number-container">
+                    <span class="song-number">83</span>
+                    <span class="position-change down">⯆ -2</span>
+                </div>
+                <div class="song-info">
+                    <h3>A flowing river and a tree</h3>
+                    <p>Living stream ministry</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/ohwhatalfie.jpg" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="false">
+                <div class="song-number-container">
+                    <span class="song-number">84</span>
+                    <span class="position-change down">⯆ -2</span>
+                </div>
+                <div class="song-info">
+                    <h3>Diamonds</h3>
+                    <p>Rihanna</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/rihanna.jpg" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="false">
+                <div class="song-number-container">
+                    <span class="song-number">85</span>
+                    <span class="position-change down">⯆ -2</span>
+                </div>
+                <div class="song-info">
+                    <h3>The boxer</h3>
+                    <p>Simon & Garfunkel</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/cecilia.jpg" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="false">
+                <div class="song-number-container">
+                    <span class="song-number">86</span>
+                    <span class="position-change down">⯆ -2</span>
+                </div>
+                <div class="song-info">
+                    <h3>Let it be</h3>
+                    <p>The Beatles</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/letitbe.png" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="false">
+                <div class="song-number-container">
+                    <span class="song-number">87</span>
+                    <span class="position-change down">⯆ -1</span>
+                </div>
+                <div class="song-info">
+                    <h3>The humming</h3>
+                    <p>Enya</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/enyaechoes.jpg" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="false">
+                <div class="song-number-container">
+                    <span class="song-number">88</span>
+                    <span class="position-change down">⯆ -1</span>
+                </div>
+                <div class="song-info">
+                    <h3>Perfect</h3>
+                    <p>Ed Sheeran</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/edsheerandivide.jpg" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="true">
+                <div class="song-number-container">
+                    <span class="song-number">89</span>
+                    <span class="position-change new">New</span>
+                </div>
+                <div class="song-info">
+                    <h3>What miracle! What mystery!</h3>
+                    <p>Living Stream Ministry</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/whatmiracle.jpg" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="false">
+                <div class="song-number-container">
+                    <span class="song-number">90</span>
+                    <span class="position-change down">⯆ -2</span>
+                </div>
+                <div class="song-info">
+                    <h3>Mr. blue sky</h3>
+                    <p>ELO</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/mrbluesky.png" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="false">
+                <div class="song-number-container">
+                    <span class="song-number">91</span>
+                    <span class="position-change down">⯆ -2</span>
+                </div>
+                <div class="song-info">
+                    <h3>Hollywood</h3>
+                    <p>Gigi D'agostino, LA Vision</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/auto.png" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="false">
+                <div class="song-number-container">
+                    <span class="song-number">92</span>
+                    <span class="position-change down">⯆ -2</span>
+                </div>
+                <div class="song-info">
+                    <h3>California dreamin'</h3>
+                    <p>The mama's and the papa's</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/california.jpg" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="false">
+                <div class="song-number-container">
+                    <span class="song-number">93</span>
+                    <span class="position-change new">New</span>
+                </div>
+                <div class="song-info">
+                    <h3>Comfort chain</h3>
+                    <p>Instupendo</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/auto.png" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="false">
+                <div class="song-number-container">
+                    <span class="song-number">94</span>
+                    <span class="position-change down">⯆ -3</span>
+                </div>
+                <div class="song-info">
+                    <h3>Dancing queen</h3>
+                    <p>ABBA</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/dancing.png" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="false">
+                <div class="song-number-container">
+                    <span class="song-number">95</span>
+                    <span class="position-change down">⯆ -22</span>
+                </div>
+                <div class="song-info">
+                    <h3>Infinity 2008</h3>
+                    <p>Guru josh project</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/infinity.jpg" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="false">
+                <div class="song-number-container">
+                    <span class="song-number">96</span>
+                    <span class="position-change down">⯆ -4</span>
+                </div>
+                <div class="song-info">
+                    <h3>Clocks</h3>
+                    <p>Coldplay</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/clocks.jpg" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="false">
+                <div class="song-number-container">
+                    <span class="song-number">97</span>
+                    <span class="position-change new">New</span>
+                </div>
+                <div class="song-info">
+                    <h3>Fallen down</h3>
+                    <p>Toby Fox</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/auto.png" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="false">
+                <div class="song-number-container">
+                    <span class="song-number">98</span>
+                    <span class="position-change down">⯆ -5</span>
+                </div>
+                <div class="song-info">
+                    <h3>Here comes the sun</h3>
+                    <p>The Beatles</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/abbylane.jpg" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="false">
+                <div class="song-number-container">
+                    <span class="song-number">99</span>
+                    <span class="position-change down">⯆ -5</span>
+                </div>
+                <div class="song-info">
+                    <h3>Money for nothing</h3>
+                    <p>Dire straits</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/moneyfornothing.jpg" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="false">
+                <div class="song-number-container">
+                    <span class="song-number">100</span>
+                    <span class="position-change down">⯆ -4</span>
+                </div>
+                <div class="song-info">
+                    <h3>Wurthering heights</h3>
+                    <p>Dire straits</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/auto.png" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="false">
+                <div class="song-number-container">
+                    <span class="song-number">101</span>
+                    <span class="position-change down">⯆ -5</span>
+                </div>
+                <div class="song-info">
+                    <h3>Sign of the times</h3>
+                    <p>Harry Styles</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/auto.png" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+            <div class="song-card" data-religious="false">
+                <div class="song-number-container">
+                    <span class="song-number">102</span>
+                    <span class="position-change down">⯆ -5</span>
+                </div>
+                <div class="song-info">
+                    <h3>Bitter sweet symphony</h3>
+                    <p>The Verve</p>
+                </div>
+                <div class="album-container">
+                    <img src="albums/bittersweet.jpg" alt="Album Cover" class="album-cover">
+                </div>
+            </div>
+
 
         <audio id="audio-player" src=""></audio>
     </div>
 </div>
-<footer>
+<footer id="bottom">
     <h4>&copy;2024 Daniel Justin Gray</h4>
     <p>E: <a href="mailto:irishball193@gmail.com">irishball193@gmail.com</a></p>
     <p>W: <a href="#">danieljustingray.soppyinc.com</a></p>
     <a href="privacy.html">Privacy policy</a>
 </footer>
 <script src="script.js"></script>
+<script>
+    // Get the button
+    let mybutton = document.getElementById("toTop");
+    
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
+    
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+    
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+    document.getElementById('filter-religious').addEventListener('change', function () {
+        const isChecked = this.checked;
+        const songCards = document.querySelectorAll('.song-card');
+
+        songCards.forEach(card => {
+            const isReligious = card.getAttribute('data-religious') === 'true';
+            if (isChecked && isReligious) {
+                card.classList.add('hidden');
+            } else {
+                card.classList.remove('hidden');
+            }
+        });
+    });
+
+    </script>
 </body>
 </html>
