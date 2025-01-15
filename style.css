@@ -52,7 +52,7 @@ nav a:hover {
 .card {
     background: #f0f0f0;
     padding: 15px;
-    margin: 20px;
+    margin: 1px;
     border: 2px solid #808080;
     border-bottom-color: white;
     border-right-color: white;
@@ -127,7 +127,7 @@ footer a {
 }
 
 .row {
-    padding: 20px;
+    padding: 5px;
 }
 .song-number {
     font-size: 18px;
