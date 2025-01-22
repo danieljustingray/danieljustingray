@@ -54,16 +54,16 @@
     <p>My top 250 for 2024</p>
 </header>  
 <nav>
-    <a href="http://danieljustingray.soppyinc.com"><i class="fa fa-home" style="font-size:24px"></i></a>
-    <a href="projects"><i class='fa fa-code' style='font-size:24px'></i></a>
-    <a href="top250"><i class="fa fa-music" style='font-size:24px'></i></a>
-    <a href="contact" style="float:right"><i class='fa fa-address-book' style='font-size:24px'></i></a>
+    <a href="index"><i class="fa fa-home" style="font-size:20px;"></i>&nbsp;Home</a>
+    <a href="projects"><i class='fa fa-code' style='font-size:20px'></i>&nbsp;Projects</a>
+    <a href="#" class="active"><i class="fa fa-music" style='font-size:20px'></i>&nbsp;Top 250</a>
+    <a href="contact" style="float:right"><i class='fa fa-address-book' style='font-size:20px'></i>&nbsp;Contact me</a>
 </nav>    
 <button onclick="topFunction()" id="toTop" title="Go to top">Top</button>
-<a href="#bottom">Bottom</a>
 <div class="row">
-    <div class="card">
-        <h2>List</h2>
+    <div class="card" style="width: 100%;">
+        <a href="#bottom">To Bottom</a><br><br>
+        <h2 id="toplist">List</h2>
         <!-- Search Bar -->
         <div class="search-container">
             <input type="text" id="song-search" placeholder="Search for songs or artists..." onkeyup="filterSongs()">
@@ -1544,11 +1544,12 @@
 
 
         <audio id="audio-player" src=""></audio>
+        </div></div>
     </div>
 </div>
 <footer id="bottom">
     <h4>&copy;2024 Daniel Justin Gray</h4>
-    <p>E: <a href="mailto:irishball193@gmail.com">irishball193@gmail.com</a></p>
+    <p>E: <a href="mailto:daniel.justin.gray08@gmail.com">daniel.justin.gray08@gmail.com</a></p>
     <p>W: <a href="#">danieljustingray.soppyinc.com</a></p>
     <a href="privacy.html">Privacy policy</a>
 </footer>

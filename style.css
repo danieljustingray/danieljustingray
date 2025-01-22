@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 body {
-    font-family: "Tahoma", "Verdana", sans-serif;
+    font-family: sans-serif;
     padding: 0;
     margin: 0;
     background: #c0c0c0;
@@ -11,43 +11,48 @@ body {
 header {
     padding: 20px;
     text-align: center;
-    background: #f0f0f0; /* Light gray */
+    background: #f0f0f0;
     border: 2px solid #808080;
     border-bottom-color: white;
     border-right-color: white;
 }
 header h1 {
     font-size: 24px;
-    color: #000080; /* Classic blue */
+    color: #000080;
     margin: 0;
 }
 header p {
     margin: 0;
     font-size: 14px;
 }
-
-/* Navigation */
 nav {
     display: flex;
-    justify-content: space-around;
-    background: #008080; /* Windows teal */
-    padding: 5px;
+    justify-content: space-between;
+    background: #008080;
     border: 2px solid #808080;
     border-top-color: white;
     border-left-color: white;
+    width: 100%;
 }
 nav a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: "Tahoma", sans-serif;
     font-size: 14px;
     color: white;
     text-decoration: none;
     padding: 8px 16px;
-    border: 1px solid transparent;
+    position: relative;
+    width: 100%;
 }
 nav a:hover {
     background: #000080;
     color: white;
-    border-color: #c0c0c0;
+}
+nav a.active {
+    background: #004d4d;
+    color: white;
 }
 .card {
     background: #f0f0f0;
@@ -56,6 +61,40 @@ nav a:hover {
     border: 2px solid #808080;
     border-bottom-color: white;
     border-right-color: white;
+}
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.projects-container div {
+    text-align: center;
+    max-width: 200px;
+}
+.projects-container img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+}
+.projects-container a {
+    color: #000080;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    margin-top: 5px;
+}
+.projects-container span {
+    color: #555;
+    font-size: 14px;
+    display: block;
+    margin-top: 5px;
+}
+@media (max-width: 768px) {
+    .projects-container {
+      flex-direction: column;
+      align-items: center;
+    }
 }
 h2 {
     font-size: 18px;
@@ -124,10 +163,14 @@ footer a {
         width: 100%; /* Make the links take full width */
         padding: 10px 0;
     }
+    .row {
+        flex-direction: column;
+    }
 }
-
 .row {
     padding: 5px;
+    display: flex;
+    flex-direction: row;
 }
 .song-number {
     font-size: 18px;
